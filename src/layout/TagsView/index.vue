@@ -5,7 +5,7 @@
 </template>
 <script>
 export default {
-    name: 'TagsView'
+    name: 'TagsView'//标签页
 }
 </script>
 <style lang="scss" scoped>

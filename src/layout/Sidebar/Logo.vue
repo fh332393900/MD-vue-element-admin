@@ -12,11 +12,11 @@
     </transition>
   </div>
 </template>
-
 <script>
 export default {
   name: 'SidebarLogo',//菜单栏logo图标
   props: {
+    //菜单是否伸缩
     collapse: {
       type: Boolean,
       required: true
@@ -24,13 +24,12 @@ export default {
   },
   data() {
     return {
-      title: 'MD Vue Element Admin',
-      logo: 'https://wpimg.wallstcn.com/69a1c46c-eb1c-4b46-8bd4-e9e686ef5251.png'
+      title: 'MD Vue Element Admin',//logo标题
+      logo: 'https://wpimg.wallstcn.com/69a1c46c-eb1c-4b46-8bd4-e9e686ef5251.png'//logo图片
     }
   }
 }
 </script>
-
 <style lang="scss" scoped>
 .sidebarLogoFade-enter-active {
   transition: opacity 1.5s;

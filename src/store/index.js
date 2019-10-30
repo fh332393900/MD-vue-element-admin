@@ -4,7 +4,7 @@ import getters from './getters.js'
 
 Vue.use(Vuex)
 const modulesFiles = require.context('./modules',true,/\.js$/)
-
+//引入modules中的文件
 const modules = modulesFiles.keys().reduce((modules,modulePath) => {
     const moduleName = modulePath.replace(/^\.\/(.*)\.\w+$/, '$1')
     const value = modulesFiles(modulePath)

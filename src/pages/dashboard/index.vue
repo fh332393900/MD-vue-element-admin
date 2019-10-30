@@ -1,23 +1,12 @@
 <template>
-    <div @click="path">dashboard</div>
+    <div>dashboard</div>
 </template>
 <script>
 export default {
-    name: 'dashboard',
-    created(){
-       
+    name: 'dashboard',//首页
+    created(){ 
     },
     methods: {
-        path(){
-            this.$router.push(
-                {
-                    path: '/documents',
-                    query: {
-                        name: 'fh'
-                    }
-                }
-            )
-        }
     }
 }
 </script>

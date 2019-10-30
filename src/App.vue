@@ -24,6 +24,8 @@ html {
   padding: 0;
   box-sizing: border-box;
 }
+a { text-decoration: none; }
+a:hover { text-decoration: none; }
 #app {
     width: 100%;
 }

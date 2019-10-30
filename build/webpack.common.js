@@ -7,16 +7,21 @@ module.exports = {
     entry: './src/index.js',
     output:{
         filename: '[name].bundle.js',
-        path: path.resolve(__dirname,'dist')
+        path: path.resolve(__dirname,'../dist')
     },
     plugins: [
         new CleanWebpackPlugin(),
         new HtmlWebpackPlugin({
-            template: './src/index.html',
+            template: './public/index.html',
             filename: 'index.html'
         }),
         new VueLoaderPlugin()
     ],
+    resolve: {
+        alias: {
+            "@": path.resolve('src')
+        }
+    },
     module: {
         rules: [
             {

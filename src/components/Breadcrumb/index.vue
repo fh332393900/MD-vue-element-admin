@@ -3,7 +3,7 @@
         <transition-group name="breadcrumb">
             <el-breadcrumb-item v-for="(item,index) in levelList" :key="item.path">
                 <span v-if="index == levelList.length-1" class="no-redirect">{{item.meta.title}}</span>
-                <a v-else>{{item.meta.title}}</a>
+                <a v-else @click.prevent="handleLink(item)">{{item.meta.title}}</a>
             </el-breadcrumb-item>
         </transition-group>
     </el-breadcrumb>
@@ -13,6 +13,7 @@ export default {
     name: 'Breadcrumb',
     data() {
         return {
+            //面包屑层级
             levelList: []
         }
     },
@@ -26,7 +27,11 @@ export default {
         this.getBreadcrumb()
     },
     methods: {
-        //获取面包屑的路由信息
+       /**
+         * 获取面包屑的路由信息
+         * @author fenghang
+         * @version v1
+         */
         getBreadcrumb() {
             let matched = this.$route.matched.filter(item => item.meta && item.meta.title)
             let first = matched[0]
@@ -36,13 +41,35 @@ export default {
             }
             this.levelList = matched.filter(item => item.meta && item.meta.title)
         },
-        //判断第一个路由信息是不是首页
+        /**
+         * 判断第一个路由信息是不是首页
+         * @author fenghang
+         * @param {Object} route
+         * @version v1
+         */
         isDashboard(route) {
             const name = route && route.name
             if (!name) {
                 return false
             }
             return name.trim() === '首页'
+        },
+        /**
+         *  点击面包屑跳转
+         * @author fenghang
+         * @param {Object} item 要跳转的路由
+         * @version v1
+         */
+        handleLink(item) {
+            const { redirect, path } = item
+            //如果是当前页面就不作跳转
+            if ( redirect !== this.$route.path) {
+                if (redirect) {
+                    this.$router.push(redirect)
+                    return
+                }
+                this.$router.push(path)
+            } 
         }
     }
 }

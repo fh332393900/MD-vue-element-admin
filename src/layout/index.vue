@@ -2,9 +2,10 @@
     <div :class="{hideSidebar: isHideSider}" class="app-warpper">
         <sidebar class="sidebar-container"></sidebar>
         <div class="main-container">
-            <navbar></navbar>
-            <!-- <el-button @click="toggleMenu">open/close</el-button> -->
-            <tags-view></tags-view>
+            <div>
+                <navbar></navbar>
+                <tags-view></tags-view>
+            </div>
             <app-main></app-main>
         </div>
     </div>
@@ -21,14 +22,13 @@ export default {
         ...mapGetters([
             'sidebar'
         ]),
+        //从vuex中获取当前的菜单伸缩状态
         isHideSider() {
             return !this.sidebar.open
         }
     },
     methods: {
-        toggleMenu() {
-            this.isHideSider = !this.isHideSider
-        }
+      
     }
 }
 </script>
@@ -53,6 +53,17 @@ export default {
     position: relative;
     transition: margin-left 0.3s;
 }
+//固定header的样式，width需要动态计算
+// .fixed-header {
+//     position: fixed;
+//     top: 0;
+//     right: 0;
+//     width: calc(100% - 210px);
+//     z-index: 9;
+// }
+// .app-main {
+//     margin-top: 84px;
+// }
 .hideSidebar {
     .sidebar-container {
       width: 54px !important;

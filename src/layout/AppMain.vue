@@ -7,7 +7,7 @@
 </template>
 <script>
 export default {
-    name: 'AppMain'
+    name: 'AppMain'//主要内容区域
 }
 </script>
 <style lang="scss" scoped>
@@ -19,9 +19,8 @@ export default {
     //内容区域的过度动画
     .fade-transform-leave-active,
     .fade-transform-enter-active {
-        transition: all .5s;
+        transition: all .3s;
     }
-
     .fade-transform-enter {
         opacity: 0;
         transform: translateX(-30px);
