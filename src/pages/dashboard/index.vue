@@ -1,5 +1,5 @@
 <template>
-    <div>dashboard</div>
+    <div @click="toTable">dashboard</div>
 </template>
 <script>
 export default {
@@ -7,6 +7,15 @@ export default {
     created(){ 
     },
     methods: {
+        toTable() {
+            this.$router.push({
+                path: '/documents/document2',
+                query: {
+                    name: 'fh',
+                    age: '21'
+                }
+            })
+        }
     }
 }
 </script>

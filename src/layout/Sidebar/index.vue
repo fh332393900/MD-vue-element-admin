@@ -38,12 +38,8 @@ export default {
             if (meta.activeMenu) {
                 return meta.activeMenu
             }
-            return path.split('/').slice(-1)[0]
+            return path
         }
-    },
-    created() {  
-    },
-    methods: {
     }
 }
 </script>
@@ -67,5 +63,6 @@ export default {
         border: none;
         height: 100%;
         width: 100% !important;
+        margin-bottom: 40px;
     }
 </style>

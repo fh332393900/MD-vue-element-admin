@@ -27,6 +27,6 @@ html {
 a { text-decoration: none; }
 a:hover { text-decoration: none; }
 #app {
-    width: 100%;
+  width: 100%;
 }
 </style>
