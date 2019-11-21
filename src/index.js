@@ -5,12 +5,14 @@ import store from './store/index.js'
 import Element from 'element-ui'
 import Fragment from 'vue-fragment'
 import 'element-ui/lib/theme-chalk/index.css'
+import NProgress from 'nprogress'
+import 'nprogress/nprogress.css'
 
+Vue.prototype.$NProgress = NProgress
 import './assets/icons/index.js'
 import './permission.js'
 //解决element菜单折叠文字不隐藏问题
 Vue.use(Fragment.Plugin)
-
 Vue.use(Element,{
     size: 'medium'
 })

@@ -4,9 +4,13 @@
     </div>
 </template>
 <script>
+import tinymce from 'tinymce'
+import 'tinymce/themes/silver/theme'
 import zh_CN from './zh_CN.js'
 import plugins from './plugins.js'
+require('./plugins.js')
 import toolbar from './toolbar.js'
+
 export default {
     props: {
         value: {
@@ -16,6 +20,7 @@ export default {
     },
     data() {
         return {
+            //是否改变了内容
             hasChange: false,
             hasInit: false,
             tinymceId: 'text'
@@ -45,21 +50,27 @@ export default {
         this.destroyTinymce()
     },
     methods: {
+        /**
+         * 加载富文本，配置参数工具
+         * @author fenghang
+         * @version v2 更改为npm引入
+         */
         initTinymce() {
             const _this = this
             window.tinymce.init({
                 selector: '#text',
-                min_height: 400,
+                language: 'zh_CN',
                 toolbar: true,
                 menubar: true,
                 inline: false,
-                language:'zh_CN',
+                skin_url: '../../../static/tinymce/skins/ui/oxide',//富文本皮肤
+                content_css: '../../../static/tinymce/skins/content/default/content.css',//富文本样式
+                min_height: 400,
                 plugins: plugins,
                 toolbar: toolbar,
                 quickbars_selection_toolbar: 'bold italic forecolor | link blockquote quickimage | fullscreen |',
                 init_instance_callback: editor => {
                     if (_this.value) {
-                        console.log("set")
                         editor.setContent(_this.value)
                     }
                     _this.hasInit = true
@@ -68,7 +79,7 @@ export default {
                         this.$emit('input',editor.getContent())
                     })
                 }
-            });
+            })
         },
         //路由切换时必须调用销毁
         destroyTinymce() {

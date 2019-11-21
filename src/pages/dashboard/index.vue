@@ -1,9 +1,25 @@
 <template>
-    <div @click="toTable">dashboard</div>
+    <div class="echarts">
+        <div>
+            <el-row>
+                <div class="echarts-warpper">
+                    <map-chart></map-chart>
+                </div>
+            </el-row>
+            <el-row>
+                <div class="echarts-warpper">
+                    <complex-chart></complex-chart>
+                </div>
+            </el-row>
+        </div>
+    </div>
 </template>
 <script>
+import mapChart from './components/mapChart.vue'
+import complexChart from './components/complexChart.vue'
 export default {
     name: 'dashboard',//首页
+    components: {mapChart,complexChart},
     created(){ 
     },
     methods: {
@@ -20,7 +36,13 @@ export default {
 }
 </script>
 <style lang="scss" scoped>
-    div {
+    .echarts {
+        background-color: rgb(240, 242, 245);
         padding: 20px;
+        &-warpper {
+            width: 100%;
+            background-color: #ffffff;
+            margin-bottom: 30px;
+        }
     }
 </style>

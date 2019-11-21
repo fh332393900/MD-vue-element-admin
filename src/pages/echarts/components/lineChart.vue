@@ -29,22 +29,22 @@ export default {
             this.setOptions()
         },
         setOptions() {
-            var base = +new Date(2019, 9, 3);
-            var oneDay = 24 * 3600 * 1000;
-            var date = [];
+            var base = +new Date(2019, 9, 3)
+            var oneDay = 24 * 3600 * 1000
+            var date = []
 
-            var data = [500,200,90,120,321,44,422,54,390];
+            var data = [500,200,90,120,321,44,422,54,390]
 
             for (var i = 1; i < 10; i++) {
                 var now = new Date(base += oneDay);
-                date.push([now.getFullYear(), now.getMonth() + 1, now.getDate()].join('/'));
-                //data.push(Math.round((Math.random() - 0.5) * 20 + data[i - 1]));
+                date.push([now.getFullYear(), now.getMonth() + 1, now.getDate()].join('/'))
+                //data.push(Math.round((Math.random() - 0.5) * 20 + data[i - 1]))
             }
             this.chart.setOption({
                 tooltip: {
                     trigger: 'axis',
                     position: function (pt) {
-                        return [pt[0], '10%'];
+                        return [pt[0], '10%']
                     }
                 },
                 title: {

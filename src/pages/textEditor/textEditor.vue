@@ -1,13 +1,13 @@
 <template>
     <div class="text-editor">
-        
+        <tinymce v-model="content"></tinymce>
         <div v-html="content"></div>
     </div>
 </template>
 <script>
-//import Tinymce from '@/components/Tinymce/index.vue'
+import Tinymce from '@/components/Tinymce/index.vue'
 export default {
-    //components: {Tinymce},
+    components: {Tinymce},
     data() {
         return {
             content: ''

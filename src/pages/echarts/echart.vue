@@ -29,6 +29,11 @@
                         <pie-chart2 ></pie-chart2>
                     </div>
                 </el-col>
+            </el-row>
+            <el-row >
+                <div class="echarts-warpper">
+                    <tree-chart></tree-chart>
+                </div>
             </el-row>  
         </div>
     </div>
@@ -39,8 +44,9 @@ import lineChart from './components/lineChart.vue'
 import barChart from './components/barChart.vue'
 import radarChart from './components/radarChart.vue'
 import pieChart2 from './components/pieChart2.vue'
+import treeChart from './components/treeChart.vue'
 export default {
-    components: {pieChart,lineChart,barChart,radarChart,pieChart2},
+    components: {pieChart,lineChart,barChart,radarChart,pieChart2,treeChart},
     data() {
         return {
 

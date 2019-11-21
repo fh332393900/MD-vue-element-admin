@@ -1,7 +1,10 @@
 const path = require('path')
+const utils = require('./utils.js')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const {CleanWebpackPlugin} = require('clean-webpack-plugin')
 const VueLoaderPlugin = require('vue-loader/lib/plugin')
+const config = require('../config/index.js')
+const CopyWebpackPlugin = require('copy-webpack-plugin')
 
 module.exports = {
     entry: './src/index.js',
@@ -15,7 +18,14 @@ module.exports = {
             template: './public/index.html',
             filename: 'index.html'
         }),
-        new VueLoaderPlugin()
+        new VueLoaderPlugin(),
+        new CopyWebpackPlugin([
+            {
+              from: path.resolve(__dirname, '../static'),
+              to: config.build.assetsSubDirectory,
+              ignore: ['.*']
+            }
+        ])
     ],
     resolve: {
         alias: {
@@ -47,15 +57,11 @@ module.exports = {
             },
             {
                 test: /\.(png|svg|jpg|gif)$/,
-                use: [
-                  'file-loader'
-                ]
+                use: ['file-loader'],
             },
             {
                 test: /\.(woff|woff2|eot|ttf|otf)$/,
-                use: [
-                  'file-loader'
-                ]
+                use: ['file-loader'],
             },
         ]
     }

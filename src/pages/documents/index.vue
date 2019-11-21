@@ -36,10 +36,12 @@
                 </el-table-column>
             </el-table>
         </div>
+        <img/>
     </div>
 </template>
 <script>
 import bookData from './data.js'
+//import img1 from ''
 export default {
     name: 'documents',
     data() {
